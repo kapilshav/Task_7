@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Frist Page</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <style>
+            button#b1{
+                
+            top:80%;
+            left:50%;
+        
+            }
+
+            div#d2{
+                top: 80%;
+
+                font-size: 30px;
+                color: yellow;
+                text-decoration: aqua;
+                
+            }
+            #b1:hover{
+                color: white;
+                background-color: black;
+            }
+        </style>
+    </head>
+<body>
+    <header>
+        <div class="main">
+        <div class="logo">
+            <img src="Moby-logo.png">
+        </div>
+            <ul>
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="title">
+            <h1>DOCKER HOME</h1>
+           
+            </div>
+        </div>
+        <div class="in">
+        <center>
+           
+        <input type="text" id="I1" placeholder="Enter Command"></br>
+        <button id="b1" , onclick="lw();">Run Command</button></br>
+        <div id="d2"> output</div> </br>
+        <pre>
+        <div id="d1"></div>
+        </pre>
+        </center>
+        </div>
+       
+    </header>
+
+</body>
+</html>
+<script>
+    function lw(){
+        var i = document.getElementById("I1").value 
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET" , "http://192.168.141.114/cgi-bin/lw.py?=x" + i , true);
+        xhr.send();
+        xhr.onload = function ()
+        {
+            var output = xhr.responseText;
+            document.getElementById("d1").innerHTML = output;
+        }
+    }
+</script>
